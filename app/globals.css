@@ -8,6 +8,7 @@
   --accent: #C8A97E;
   --accent-hover: #B8956A;
   --input-bg: #FBF8F5;
+  --card: #FFFFFF;
 }
 
 @theme inline {

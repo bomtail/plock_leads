@@ -325,8 +325,12 @@ export default function Home() {
             <button
               type="submit"
               disabled={pending}
-              className="mt-1 rounded-lg py-3 text-sm font-semibold text-white transition-all disabled:opacity-60"
-              style={{ backgroundColor: pending ? "var(--accent)" : "var(--accent)" }}
+              className="mt-2 w-full rounded-lg py-3.5 text-sm font-semibold transition-all disabled:cursor-not-allowed disabled:opacity-60"
+              style={{
+                backgroundColor: "var(--accent)",
+                color: "#FFFFFF",
+                border: "none",
+              }}
               onMouseEnter={(e) => {
                 if (!pending)
                   e.currentTarget.style.backgroundColor = "var(--accent-hover)";
@@ -335,7 +339,7 @@ export default function Home() {
                 e.currentTarget.style.backgroundColor = "var(--accent)";
               }}
             >
-              {pending ? "제출 중..." : "문의 제출하기"}
+              {pending ? "제출 중..." : "문의하기"}
             </button>
           </form>
         </div>
