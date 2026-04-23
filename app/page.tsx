@@ -32,10 +32,18 @@ export default function Home() {
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPending(true);
-    // TODO: 백엔드 연동
-    await new Promise((r) => setTimeout(r, 800));
+    const res = await fetch("/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
     setPending(false);
-    setSubmitted(true);
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      const { error } = await res.json();
+      alert(error ?? "오류가 발생했습니다. 다시 시도해 주세요.");
+    }
   };
 
   if (submitted) {
